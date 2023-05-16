@@ -7,7 +7,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
-            background: url('https://lh3.googleusercontent.com/ZiB95w_qUC4HBk1-Igj-dUM4lFSMUVgfLEhtOcCMeAeGOPQgMzoSj27LHkh_kgwfyJ34NlMpabyI5kf_kGbwQY8dTvUfdS16TQJ9g4A40Cr2S4WszktU54Sm9nWdZkSZMIUbvvt6B1SvSYLCFYyRBrMYKYWJQzxwLbey6nC5HhdnI1LEaicFHuO3AiCNYK3RfK13tLtMcQD7l0J91EUwsRcErSb_1TuWGXMPkbLe352n7EyikZ7PZ6PyEZKtsxvvehQyWfD2OhZKlmRAUCsWqvjkscUf-gRhN5-UxhoC3Hmk6vexQKh5-rLMYdwjIWZ5ije5SrIJF0GoYbPGyJ5S-w2TuDKeDXvzpaxnS1TIL9QK46BdRH7-jss4IfKdUlLkJbht-ensBYhCcV4GHcLzcA6pU37lHSO6oQ703tEppOPmoiGQiEHyTgwAvWONB6jKs_MW73w5bHFc8zAwYgcssp-cInb52PvZdJD--2H1oupUPgbMB9ZI2WuwXND_-bsVYYQRv8rzUi9Fb0odYuiAE7EDtZkW_UVrYlM1FowCSal7M6PzQ3XbZ67k0hfcnmUv5Y9cUNVBQy1_r8RdHQxwZ4O_HEh9d_9U_eXNJkimRFFr24cT9nkLnsd4CXnav--uWJB2BfZS_XEZvMMzUoT6ytPOfBi3XNVz8652tRwnwj0Dv2HYmyDLtuF51BEAqYNWoQESHJv0eXolxgQjdAkHnvZ-vxGuLKe6azxr4tHdPdf9qs-0skVeLdTdkF_o0jH3x8zJyBSw8AeJ5xPHveK5nsfKSI4d2z3ytMdX63_ZnQAErLgDLSSpYWwqydx9N2F4dlZYomqX_YMbpxeGFPxSMcxgu1EViIpAgN8ksgR3VX-cUBGxs9Z5tCpPrmoaufibE1nKRMtIhMjGKYLES9u7Nw0hd-1-WVhM9m1tVZJ3fVtby0T-GwGEXDXmJAueCVzglZrLAbFCKEeKJEaKb08hD8y_kue3zyU4gnNX69ZlMODDIdiYohGyAH0=w600-h300-s-no?authuser=0') no-repeat center center fixed; 
+            background: url('陳冠宇照片的URL') no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -57,6 +57,14 @@
 </div>
 
 <script>
+      window.onload = function() {
+        var credibility = localStorage.getItem('credibility');
+        if (credibility) {
+            document.getElementById("credibilityInput").value = credibility;
+            updateCredibility();
+        }
+    }
+
     function updateCredibility() {
         var credibility = document.getElementById("credibilityInput").value;
         var credibilityBar = document.getElementById("credibility");
@@ -70,9 +78,11 @@
         } else {
             credibilityBar.style.backgroundColor = "#f44336"; // 紅色
         }
+
+        // 將可信度的值存儲到localStorage
+        localStorage.setItem('credibility', credibility);
     }
 </script>
 
 </body>
 </html>
-
